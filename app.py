@@ -19,11 +19,6 @@ app.secret_key = 'cats'
 app.config['JWT_EXPIRATION_DELTA'] = dt.timedelta(seconds=1800)
 
 
-#flask decorator for the database
-@app.before_first_request
-def create_tables():
-    db.create_all() #before the first request it will create the db
-
 jwt = JWT(app, authenticate, identity_function)
 
 #include user ID in the response body along with an access token
@@ -42,6 +37,6 @@ api.add_resource(StoreList, '/stores')
 
 api.add_resource(UserRegister, '/register')
 
+db.init_app(app)
 if __name__=="__main__":
-    db.init_app(app)
     app.run(port = 5000, debug=True)
