@@ -13,6 +13,7 @@ Not-So-Briefly: Connect applications to databases via REST APIs, handle uthetica
 - SQLAlchemy
 - SQLite
 - Heroku
+- Heroku Postgresql
 
 ### How to run:
 python run.py 
